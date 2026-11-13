@@ -28,3 +28,11 @@ Changes are stored in browser `localStorage` using the key `voap_workforce_desig
 
 ## What was reused vs adapted
 This is a **visual and interaction adaptation**, not a copy of Workforce's infrastructure. It does not reuse Workforce's backend, authentication, Markdown task storage, agents or API. The final Netcup deployment and any real persistence are separate future work.
+
+
+## ValOS branding assets
+
+- `assets/valos-logo.svg` — original full ValOS vector logo (orange symbol and black wordmark), supplied by the project.
+- `assets/valos-icon.svg` — cropped SVG symbol for sidebar, page header and favicon, preserving the supplied vector path and original orange `#FC5F2B`.
+
+The VOAP interface uses ValOS branding while retaining the warm paper-planner Kanban design. Assets are referenced via relative paths for static hosting.
