@@ -1,32 +1,30 @@
-# VOAP Adoption Dashboard
+# VOAP — Workforce-style Adoption Board
 
-Interactive design prototype for the ValOS Operational Adoption Programme, based on the latest proposal.
+A design-first VOAP dashboard adapted from the **warm, quiet, paper-planner Kanban UI** in the private [Lionscraft-io/workforce](https://github.com/Lionscraft-io/workforce) repository.
 
-## Scope
+## Visual language
+- Cream canvas and sidebar, dark olive text and green primary actions.
+- Open, horizontally scrollable Kanban lanes with coloured status dots and rounded white cards.
+- Small tinted labels, owner initials, dates, sidebar navigation and slide-out card editing.
+- Drag cards between columns on desktop; tap to edit status on mobile.
 
-Exactly five sections:
-1. **Overview:** adoption progress, four operational adoption milestones, quick access to other workspaces, and pipeline / Kanban snapshots.
-2. **Adoption Pipeline:** track staking operators and security/assurance providers through Identified → Engaged → Integrating → Evidence ready.
-3. **Task Kanban:** To do → In progress → Blocked → Done, including starter tasks and user-created tasks.
-4. **Adoption Milestones:** track **only** four operational adoption milestones from the proposal:
-   - First 3 Ethereum staking operators (at least 1 with 20,000+ ETH staked).
-   - Second group of 3 (6 cumulative; composition requirements apply).
-   - Third group of 3 (9 cumulative; composition requirements apply).
-   - First 3 security and assurance providers (at least 2 integration application areas).
-5. **Outreach & Comms:** campaign and stakeholder tracking concept, with direct links to [ValOS X](https://x.com/validatorOS/) and the [validator/NOP subsidy application](https://tally.so/r/jebL0Y).
+## Five sections
+1. **Overview:** adoption KPI targets, workstream snapshots, quick links.
+2. **Adoption pipeline:** Identified → Contacted → Engaged → Implementing → Verification pending. Filter by staking or security/assurance.
+3. **Task Kanban:** Backlog → Weekly → Focus → Review → Done. Workstream filters.
+4. **Adoption milestones:** only four operational adoption outcomes (staking 3 / 6 / 9 and assurance providers 3).
+5. **Outreach & comms:** manually managed contacts plus links to [ValOS X](https://x.com/validatorOS/) and [NOP subsidy intake](https://tally.so/r/jebL0Y).
 
-There is intentionally **no** funding KPI, budget tracker, evidence-register page, decisions/risk page, or activity-based grant milestones.
+No funding KPI, funding/budget module, evidence register, or decisions/risk module. No outreach activity milestones.
 
-## Adoption counting
+## How to run
+Download or clone this repo and open `index.html` in a browser. It is a self-contained, static prototype with no build step. GitHub's source code view does **not** render the application.
 
-The proposal's broad 12-organisation commitment specifies 6 staking + 6 assurance, while the adoption milestones specify 9 staking + 3 assurance. The prototype displays the milestone path **9+3** explicitly, with a note about this inconsistency. Do not silently interpret the proposal as changing its commitment.
+Changes are stored in browser `localStorage` using the key `voap_workforce_design_v1`, not in GitHub or on a server. They are not synchronised with other users or devices. Do not enter private operator security findings or sensitive contact/applicant data into a publicly hosted copy.
 
-The preview does not count a pipeline card as independently verified, even when moved to 'Evidence ready'. Adoption figures remain at 0 until a proper independent-review confirmation workflow is implemented.
+**KPI counting:** The prototype intentionally displays zero independently verified adoptions. Merely moving an organisation to "Verification pending" does not count it as verified. The eventual production version needs a validated confirmation workflow.
 
-## How to view
+**Proposal discrepancy:** The updated grant proposal states an overall 6 staking + 6 assurance commitment, whereas the four adoption milestones total 9 staking + 3 assurance. For visualisation the dashboard uses the milestone-specific 9+3 breakdown without purporting to change the commitment.
 
-Open `index.html` in a browser, or access its GitHub Pages URL **after** Pages is separately configured. Browsing the GitHub source file itself will show code, not an interactive dashboard.
-
-The prototype stores added tasks and organisation pipeline entries in local browser storage; nothing syncs to GitHub or a server. Never put confidential applicant data or validator security details into a publicly deployed prototype.
-
-Future production work: authenticated multi-user persistence, organisation records with owner/next action, independently confirmed adoption criteria, outreach campaign management, task assignments, and a backend for safe hosting on Netcup. No deployment has been performed.
+## What was reused vs adapted
+This is a **visual and interaction adaptation**, not a copy of Workforce's infrastructure. It does not reuse Workforce's backend, authentication, Markdown task storage, agents or API. The final Netcup deployment and any real persistence are separate future work.
