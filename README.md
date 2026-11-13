@@ -1,50 +1,32 @@
-# VOAP Mission Control
+# VOAP Adoption Dashboard
 
-Design-first prototype for the **ValOS Operational Adoption Programme** (VOAP), based on the latest proposal supplied in November 2026.
+Interactive design prototype for the ValOS Operational Adoption Programme, based on the latest proposal.
 
-## Open the prototype
+## Scope
 
-Open `index.html` directly in a browser. No build step, backend, credentials or Netcup deployment is required. The prototype includes an overview, organisation adoption pipeline, separate task Kanban, milestone tracker, outreach & communications panel, evidence register layout, funding tracker, and decision/risk register.
+Exactly five sections:
+1. **Overview:** adoption progress, four operational adoption milestones, quick access to other workspaces, and pipeline / Kanban snapshots.
+2. **Adoption Pipeline:** track staking operators and security/assurance providers through Identified → Engaged → Integrating → Evidence ready.
+3. **Task Kanban:** To do → In progress → Blocked → Done, including starter tasks and user-created tasks.
+4. **Adoption Milestones:** track **only** four operational adoption milestones from the proposal:
+   - First 3 Ethereum staking operators (at least 1 with 20,000+ ETH staked).
+   - Second group of 3 (6 cumulative; composition requirements apply).
+   - Third group of 3 (9 cumulative; composition requirements apply).
+   - First 3 security and assurance providers (at least 2 integration application areas).
+5. **Outreach & Comms:** campaign and stakeholder tracking concept, with direct links to [ValOS X](https://x.com/validatorOS/) and the [validator/NOP subsidy application](https://tally.so/r/jebL0Y).
 
-**Important:** This is a prototype, not a production application. Tasks and organisations entered in the browser use `localStorage`. They are not synchronized or backed up. Do not put confidential applications, correspondence, security findings, or personal information into a publicly hosted copy.
+There is intentionally **no** funding KPI, budget tracker, evidence-register page, decisions/risk page, or activity-based grant milestones.
 
-## Proposal baseline
+## Adoption counting
 
-- Programme duration: **18 months** (actual start date TBD).
-- Funding requested: **USD 108,000** (not an award).
-- Target: **12 independently verifiable adoptions**.
-- Headline target mix: **6 staking operators + 6 security/assurance providers**.
-- Activation: **20 qualified prospects**.
-- Activity milestones: **10 operator-specific actions, 10 provider-specific actions, 6 staking proposals, 6 provider proposals**.
-- Seven milestone payments: 12k + 21k + 21k + 13.5k + 13.5k + 13.5k + 13.5k = **USD 108k**.
-- **Open discrepancy:** The paid adoption milestone breakdown includes **9 staking operators and 3 providers**, in contrast with the 6+6 programme commitment. Resolve this before implementing acceptance logic.
+The proposal's broad 12-organisation commitment specifies 6 staking + 6 assurance, while the adoption milestones specify 9 staking + 3 assurance. The prototype displays the milestone path **9+3** explicitly, with a note about this inconsistency. Do not silently interpret the proposal as changing its commitment.
 
-### Verification principle
+The preview does not count a pipeline card as independently verified, even when moved to 'Evidence ready'. Adoption figures remain at 0 until a proper independent-review confirmation workflow is implemented.
 
-Pipeline advancement **does not** count as verified adoption. The current prototype's verified counters remain at zero because it has no independent-review or evidence approval workflow. In production, only independently accepted records with the required operational adoption and continuity evidence should increase verified KPIs.
+## How to view
 
-## Important scope distinctions
+Open `index.html` in a browser, or access its GitHub Pages URL **after** Pages is separately configured. Browsing the GitHub source file itself will show code, not an interactive dashboard.
 
-VOAP drives and coordinates adoption; it **does not** perform security audits, certify operators, operate third-party validators, build partners' security products, perform routine ValOS v2 maintenance, or administer the existing Lido subsidy. Link to the independent subsidy intake without conflating its recipients with verified VOAP adoptions.
+The prototype stores added tasks and organisation pipeline entries in local browser storage; nothing syncs to GitHub or a server. Never put confidential applicant data or validator security details into a publicly deployed prototype.
 
-## Connected destinations (links only, no API integration)
-
-- [ValOS](https://www.valos.global/)
-- [ValOS standard](https://github.com/lidofinance/valos)
-- [ValOS on X](https://x.com/validatorOS/)
-- [Operator subsidy Tally](https://tally.so/r/jebL0Y)
-
-## Future production architecture
-
-Suggested: React/Next.js or lightweight SPA, PostgreSQL, authenticated server API, role-based access (programme admins, partners, independent reviewers, read-only observers), private evidence object storage, tamper-evident activity log, backup plan and a separately publishable, redacted public adoption register.
-
-Core entities: Organisation, Opportunity, AdoptionAction, Proposal, AssessmentReferral, AdoptionEvidence, IndependentReview, ContinuityPlan, Milestone, Task, Activity, Communication, FundingEntry, Decision, Risk. Include owner, date, status, next action, relevant grant deliverable and audit history where appropriate.
-
-Do not place API tokens or sensitive evidence in a public GitHub repository. Explicit review before any public publication.
-
-## Suggested next phases
-
-1. Approve programme KPI definitions, acceptance criteria and resolve the 6+6 / 9+3 mismatch.
-2. Implement multi-user persistence, permissions, organisation/adoption records, evidence review and a public-safe register.
-3. Add milestone/reviewer workflow, evidence exports, reporting and budget.
-4. Evaluate permitted Tally and X data access and integrations; deploy separately to Netcup when ready.
+Future production work: authenticated multi-user persistence, organisation records with owner/next action, independently confirmed adoption criteria, outreach campaign management, task assignments, and a backend for safe hosting on Netcup. No deployment has been performed.
